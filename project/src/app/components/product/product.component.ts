@@ -11,18 +11,19 @@ import { ProductServices } from "../../Shared/Services/product.services";
 })
 export class ProductComponent implements OnInit {
   public productId: number;
-  public dataModel:Data[] = new Array();
-
+  public dataModel: Data[] = new Array();
   constructor(
-    private productServices : ProductServices,
-    private AR: ActivatedRoute,
+    private productServices: ProductServices,
+    private AR: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.productServices.Product().subscribe(data => this.dataModel = data);
-    console.log(this.dataModel);
     this.AR.params.subscribe(data => {
       this.productId = data["id"];
+    });
+    this.productServices.Product().subscribe(data => {
+      this.dataModel = data.filter(val => val.productId == this.productId);
+      return this.dataModel;
     });
   }
 }

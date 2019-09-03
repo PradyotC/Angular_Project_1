@@ -16,7 +16,7 @@
             type="text"
             class="form-control"
             placeholder="Search Here"
-            [(ngModel)]="inp.keyword"
+            [(ngModel)]="inputKey.keyword"
             name="Search"
             #search="ngModel"
             (keyup)="save(search.value)"
@@ -26,7 +26,7 @@
   <br />
   <div class="row">
     <div class="col-md-4 text-left">Filter by:</div>
-    <div class="col-md-4 text-left">{{inp.keyword}}</div>
+    <div class="col-md-4 text-left">{{inputKey.keyword}}</div>
   </div>
   <br />
   <table class="table table-striped table-inverse border">
@@ -53,7 +53,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr [style.display]="(match(dataelement.product))?(''):('none')" *ngFor="let dataelement of dataModel">
+      <tr *ngFor="let dataelement of filterdata">
         <td *ngIf="flag">
           <img
             class="img-fluid img-fluid col-md-12"

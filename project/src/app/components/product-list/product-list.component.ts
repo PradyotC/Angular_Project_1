@@ -11,7 +11,8 @@ import { Search } from '../../Shared/Model/search.template';
 export class ProductListComponent implements OnInit {
   public flag:boolean = false;
   public dataModel:Data[] = new Array();
-  public inp =new Search();
+  public filterdata:Data[] = new Array();
+  public inputKey =new Search();
   public data:string="";
 
   constructor(private productServices : ProductServices) { }
@@ -19,16 +20,6 @@ export class ProductListComponent implements OnInit {
   onClick()
   {
     this.flag = !this.flag;
-  }
-
-  ngOnInit() {
-    this.productServices.Product().subscribe(data => this.dataModel = data);
-    console.log(this.dataModel);
-  }
-
-  save(data)
-  {
-    this.data = data;
   }
 
   match(y:string):boolean
@@ -49,4 +40,14 @@ export class ProductListComponent implements OnInit {
     }
   }
 
+  save(data)
+  {
+    this.data = data;
+    this.filterdata=this.dataModel.filter( (val)=> this.match(val.product));
+  }
+
+  ngOnInit() {
+    this.productServices.Product().subscribe(data => {this.dataModel = data ; this.filterdata = this.dataModel });
+  }
+  
 }
