@@ -12,24 +12,24 @@
       <label>Filter By: </label>
     </div>
     <div class="col-md-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Search Here"
-            [(ngModel)]="inputKey.keyword"
-            name="Search"
-            #search="ngModel"
-            (keyup)="save(search.value)"
-          />
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search Here"
+        [(ngModel)]="inputKey.keyword"
+        name="Search"
+        #search="ngModel"
+        (keyup)="save(search.value)"
+      />
     </div>
   </div>
   <br />
   <div class="row">
     <div class="col-md-4 text-left">Filter by:</div>
-    <div class="col-md-4 text-left">{{inputKey.keyword}}</div>
+    <div class="col-md-4 text-left">{{ inputKey.keyword }}</div>
   </div>
   <br />
-  <table class="table table-striped table-inverse border">
+  <table class="table table-responsive-sm table-striped table-inverse border">
     <thead class="thead-inverse">
       <tr>
         <th>
@@ -56,7 +56,7 @@
       <tr *ngFor="let dataelement of filterdata">
         <td *ngIf="flag">
           <img
-            class="img-fluid img-fluid col-md-12"
+            class="img col-lg-12"
             src="{{ dataelement.productImage | http: 'https' }}"
           />
         </td>
