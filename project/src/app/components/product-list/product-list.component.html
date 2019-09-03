@@ -1,0 +1,76 @@
+<br />
+<div
+  class="container border border-primary"
+  style="overflow: hidden; border-radius: 10px;"
+>
+  <div class="row bg-primary text-light ">
+    <div class="col-md-12 "><h3>ProductList</h3></div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-2">
+      <label>Filter By: </label>
+    </div>
+    <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search Here"
+            [(ngModel)]="inp.keyword"
+            name="Search"
+            #search="ngModel"
+            (keyup)="save(search.value)"
+          />
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-4 text-left">Filter by:</div>
+    <div class="col-md-4 text-left">{{inp.keyword}}</div>
+  </div>
+  <br />
+  <table class="table table-striped table-inverse border">
+    <thead class="thead-inverse">
+      <tr>
+        <th>
+          <button
+            type="button"
+            name=""
+            id=""
+            class="btn btn-primary"
+            btn-lg
+            btn-block
+            (click)="onClick()"
+          >
+            {{ flag ? "Hide" : "Show" }} Image
+          </button>
+        </th>
+        <th>Product</th>
+        <th>Code</th>
+        <th>Available</th>
+        <th>Price</th>
+        <th>5 star rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [style.display]="(match(dataelement.product))?(''):('none')" *ngFor="let dataelement of dataModel">
+        <td *ngIf="flag">
+          <img
+            class="img-fluid img-fluid col-md-12"
+            src="{{ dataelement.productImage | http: 'https' }}"
+          />
+        </td>
+        <td *ngIf="!flag"></td>
+        <td>
+          <a routerLink="/Product/{{ dataelement.productId }}">{{
+            dataelement.product
+          }}</a>
+        </td>
+        <td>{{ dataelement.code }}</td>
+        <td>{{ dataelement.available }}</td>
+        <td>{{ dataelement.price }}</td>
+        <td><app-star [starcounter]="dataelement.rating"></app-star></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

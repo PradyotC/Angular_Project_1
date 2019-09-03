@@ -1,0 +1,89 @@
+<div class="container">
+    <br />
+    <div class="row" [style.display]="x.productId == productId ? 'block' : 'none'" *ngFor="let x of dataModel">
+        <div class="container border border-primary" style="overflow: hidden; border-radius: 10px;">
+            <div class="row bg-primary text-light">
+                <div class="col-md-12">
+                    <h3>{{ x.product }}</h3>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-5">
+                    <img class="img-fluid col-md-12" src="{{ x.productImage | http: 'https' }}" />
+                </div>
+                <div class="col-md-7">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5>Product Code: {{ x.code }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 border border-top-0 border-left-0 border-bottom-0">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4>Star Rating</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <span> {{ x.rating }}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 border border-top-0 border-left-0 border-bottom-0">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4>Available</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>{{ x.available }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4>Price</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>
+                                                <i class="fa fa-inr" aria-hidden="true"></i>
+                                                <span> {{ x.price }}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row" style="background-color:#e3e1e1; padding: 10px 2px;">
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary col-md-12" routerLink="/ProductList">Back</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
