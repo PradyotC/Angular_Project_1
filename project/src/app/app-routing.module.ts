@@ -7,6 +7,10 @@ import {ProductComponent} from './components/product/product.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: HomeComponent,
+  },
+  {
     path: 'Home',
     component: HomeComponent,
   },
