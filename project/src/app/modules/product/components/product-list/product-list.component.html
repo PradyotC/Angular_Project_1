@@ -4,7 +4,7 @@
   style="overflow: hidden; border-radius: 10px;"
 >
   <div class="row bg-primary text-light ">
-    <div class="col-md-12 "><h3>ProductList</h3></div>
+    <div class="col-md-12 "><h3>ProductList{{staroutputdata}}</h3></div>
   </div>
   <br />
   <div class="row">
@@ -62,14 +62,14 @@
         </td>
         <td *ngIf="!flag"></td>
         <td>
-          <a routerLink="/Product/{{ dataelement.productId }}">{{
+           <!--- a ---> <a routerLink="/Product/{{ dataelement.productId }}">{{
             dataelement.product
           }}</a>
         </td>
         <td>{{ dataelement.code }}</td>
         <td>{{ dataelement.available }}</td>
         <td>{{ dataelement.price }}</td>
-        <td><app-star [starcounter]="dataelement.rating"></app-star></td>
+        <td><app-star [starcounter]="dataelement.rating" (starcounteroutputdata)="outputAction($event)"></app-star></td>
       </tr>
     </tbody>
   </table>

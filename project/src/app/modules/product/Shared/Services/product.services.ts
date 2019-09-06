@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Data } from './../Model/data';
 
 export class ProductServices {
-    public productEndpoint:string = '../../../assets/productAPI.json';
+    public productEndpoint:string = '../../../../../assets/productAPI.json';
     constructor(private http: HttpClient){}
 
     Product():Observable<Data[]>
