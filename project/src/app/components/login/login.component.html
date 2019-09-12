@@ -1,0 +1,42 @@
+<div class="container">
+  <form [formGroup]="login" (ngSubmit)="Save(login.value)">
+    <div class="rounded shadow p-3 mb-5" formGroupName="UserLogin">
+      <br>
+      <div class="alert alert-danger" *ngIf="errors">
+        {{errors}}
+      </div>
+      <div class="form-group">
+        <div class="col-md-12">
+          <input type="text" placeholder="Enter Username" class="form-control" formControlName="UserName"
+            [class.is-valid]="
+              login.controls['UserLogin'].controls['UserName'].valid
+            " [class.is-invalid]="
+              !login.controls['UserLogin'].controls['UserName'].valid &&
+              submitted
+            ">
+          <div class="valid-feedback">Looks Good!</div>
+          <div class="invalid-feedback">Please choose username</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-12">
+          <input type="password" placeholder="Enter Password" class="form-control" formControlName="Password"
+            [class.is-valid]="
+              login.controls['UserLogin'].controls['Password'].valid
+            " [class.is-invalid]="
+              !login.controls['UserLogin'].controls['Password'].valid &&
+              submitted
+            ">
+          <div class="valid-feedback">Looks Good!</div>
+          <div class="invalid-feedback">Enter Valid Password</div>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-md-12">
+            <a class="text-primary col-md-4" routerLink="/SignUp">Sign Up</a>
+            <button type="submit" class="btn btn-primary pull-right col-md-3" btn-lg btn-block>login</button>
+          </div>
+        </div>
+    </div>
+  </form>
+</div>

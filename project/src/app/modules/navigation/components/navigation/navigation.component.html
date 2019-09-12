@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand-sm justify-content-center justify-content-sm-start navbar-light bg-light">
+  <div class="nav navbar-nav">
+    <a class="navbar-brand">Navbar</a>
+    <a class="nav-item nav-link"  routerLink="Home">Home <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link" routerLink="Product/ProductList">ProductList</a>
+    <a class="nav-item nav-link" *ngIf="username" (click)="logout()" href="#">LogOut</a>
+    <a class="nav-item nav-link" *ngIf="username">{{username}}</a>
+  </div>
+</nav>
+<router-outlet></router-outlet>

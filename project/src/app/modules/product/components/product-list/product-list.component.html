@@ -56,13 +56,13 @@
       <tr *ngFor="let dataelement of filterdata">
         <td *ngIf="flag">
           <img
-            class="img col-lg-12"
+            class="img"
             src="{{ dataelement.productImage | http: 'https' }}"
           />
         </td>
         <td *ngIf="!flag"></td>
         <td>
-           <!--- a ---> <a routerLink="/Product/{{ dataelement.productId }}">{{
+            <a routerLink="/user/Product/{{ dataelement.productId }}">{{
             dataelement.product
           }}</a>
         </td>
